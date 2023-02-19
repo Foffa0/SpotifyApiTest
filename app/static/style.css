@@ -1,0 +1,122 @@
+/* Some white text on top with blend-mode set to 'difference' */
+p, li {
+    font-family: Arial, Helvetica; 
+    mix-blend-mode: difference;
+    color: white;
+    z-index: 3
+}
+
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+img {
+    max-inline-size: 100%;
+    block-size: auto;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0rem;
+    margin: 0rem;
+}
+
+.player-wrapper {
+    display: grid;
+    /*flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 5rem;*/
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "image metadata metadata";
+    column-gap: 2rem;
+    justify-items: center;
+    margin-inline: 5rem;
+    
+}
+
+.albumCover {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    grid-area: image;
+    align-self: center;
+}
+
+.metadata {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 1rem;
+    height: 100%;
+    grid-area: metadata;
+}
+
+.song-album {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0rem;
+    margin-left: .5rem;
+}
+
+.song-title {
+    font-size: 6rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.artist-list {
+    list-style-type: none;
+    display: block;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 2rem;
+    margin-left: .5rem;
+    padding: 0rem;
+}
+
+.artist-list li {
+    float: left;
+}
+
+.artist-list li + li:before {
+    content: ", ";
+}
+
+.buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.btn {
+    background-color: transparent; /* Blue background */
+    border: none; /* Remove borders */
+    color: rgb(255, 255, 255); /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 3rem; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+}
+.btn i {
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+
+@media only screen and (max-width: 1533px) {
+    .song-title {
+        font-size: 3rem;
+    }
+    .song-album {
+        font-size: 1.5rem;
+    }
+    .artist-list {
+        font-size: 1.5rem;
+    }
+    .buttons i {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotipy Current Song</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body style="background-color: rgb{{ currentSong.scheme_color }};">
+    <div class="container">
+        <div class="player-wrapper">
+            <img class="albumCover" src="{{ currentSong.image }}" alt="album cover">
+            <div class="metadata">
+                <p class="song-album">{{ currentSong.album }}</p>
+                <p class="song-title">{{ currentSong.title }}</p>
+                <div class="artists">
+                    <ul class="artist-list">
+                        {% for i in range(currentSong.artists|length) %}
+                        <li>{{ currentSong.artists[i] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="buttons">
+                    <button class="btn next-btn"><i class="fa-sharp fa-solid fa-backward-step"></i></button>
+                    <button id="play" class="btn play-pause-btn"><i class="fa-sharp fa-solid fa-play"></i></button>
+                    <button class="btn next-btn"><i class="fa-sharp fa-solid fa-forward-step"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{{ url_for('static', filename='player.js') }}"></script> 
+</body>
+</html>
